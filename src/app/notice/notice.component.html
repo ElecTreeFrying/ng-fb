@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="col">
+    <div class="notice-container">
+      <h3>Notice</h3>
+      <p>
+        wait until next week for my next update, [1] Query, [2] more comments, [3] more demonstrations, [4] polised markdowns
+      </p>
+      <br>
+
+      <div class="row">
+
+        <div class="col-6">
+          <pre class="bg-light">
+            <code>
+  <strong>FIREBASE RULES</strong>
+  <strong>
+    go to <a target="_blank" href="console.firebase.google.com">firebase console</a>,
+    select your project,
+
+    go to database tab in the left pane,
+    select rules, copy and past this code
+    to allow read and write in
+    realtime database without authentication
+  </strong>
+    &#123;
+      &#34;rules&#34;&#58; &#123;
+        &#34;.read&#34;&#58; &#34;true&#34;&#44;
+        &#34;.write&#34;&#58; &#34;true&#34;
+      &#125;
+    &#125;
+
+  <strong>
+    go to storage tab in the left pane,
+    select rules, copy and past this code
+    to allow read and write in
+    storages without authentication
+  </strong>
+    service firebase.storage &#123;
+      match &#47;b&#47;&#123;bucket&#125;&#47;o &#123;
+        match &#47;&#123;allPaths=&#42;&#42;&#125; &#123;
+          allow read, write&#59;
+        &#125;
+      &#125;
+    &#125;
+            </code>
+          </pre>
+        </div>
+        <div class="col-6">
+          <pre class="bg-light">
+            <code>
+  <strong>ENVIRONMENT VARIABLES</strong>
+  <strong>
+    go to <a target="_blank" href="console.firebase.google.com">firebase console</a>,
+    select your project,
+    go to the authentication tab
+    in the left pane,
+    select web setup, copy paste to
+    environment/environment.ts and
+    environment/environment.prod.ts and
+  </strong>
+    export const environment = &#123;
+      production: false,
+      firebaseConfig: &#123;
+        apiKey: "",
+        authDomain: "",
+        databaseURL: "",
+        projectId: "",
+        storageBucket: "",
+        messagingSenderId: ""
+      &#125;
+    &#125;;
+
+
+    <strong>FIREBASE IMPORTS</strong>
+    <strong>
+      import firebase modules correctly
+    </strong>
+    import &#123; environment &#125;
+        from '../environments/environment';
+    import &#123; NoticeComponent &#125;
+        from './notice/notice.component';
+    const firebaseConfig =
+        environment.firebaseConfig;
+
+    @NgModule(&#123;
+      ...
+      imports: [
+        ...
+        AngularFireModule
+                .initializeApp(firebaseConfig),
+        AngularFireAuthModule,
+        AngularFireDatabaseModule
+        ...
+      ],
+      ...
+    &#125;)
+            </code>
+          </pre>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

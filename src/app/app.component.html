@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col">
+      <div class="header">
+        <h1 class="text-center">Angular Firebase</h1>
+        <p class="text-center">Follow-up demo-application, AngularPH: Code Fusion, November 25, 2017 at VentureSpace 724 Shaw Blvd, Mandaluyong, 1552 Metro Manila</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="button-container">
+        <button type="button" class="btn btn-light" (click)="onNavigate('authentication')">Authentication</button>
+        <button type="button" class="btn btn-light" (click)="onNavigate('realtimedb')">Realtime database</button>
+        <button type="button" class="btn btn-light" (click)="onNavigate('storage')">Storage</button>
+        <button type="button" class="btn btn-light" (click)="onNavigate('hosting')">Hosting</button>
+        <button type="button" class="btn btn-warning" (click)="onShowNotice()">Show Notice</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="isShow">
+    <div class="col-12 d-flex">
+      <button type="button" class="btn btn-info m-auto" (click)="hideNotice()">Hide Notice</button>
+    </div>
+    <app-notice class="m-auto"></app-notice>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+</div>

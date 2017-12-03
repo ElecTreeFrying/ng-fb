@@ -1,0 +1,81 @@
+<div class="row">
+
+  <!-- create -->
+  <div class="col-6">
+    <h3>Create</h3>
+    <p>fill the form, press the button, visit firebase console <a target="_blank" bref="console.firebase.google.com">console.firebase.google.com</a> to see changes</p>
+
+    <form [formGroup]="stateForm">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="city" placeholder="city">
+        <input type="number" class="form-control" formControlName="zip" placeholder="zip code">
+        <input type="text" class="form-control" formControlName="mayor" placeholder="mayor">
+      </div>
+    </form>
+
+    <button type="button" class="btn btn-success" (click)="createState()">Push to firebase</button>
+  </div>
+
+
+  <!-- read -->
+  <div class="col-6">
+    <h3>Read</h3>
+    <p><strong>snapshotChanges()</strong> is used, remember we use snapshotChanges for flexibility (i.e to get document Push ID's). Use <strong>valueChanges()</strong> only if reading documents.</p>
+
+    <!-- always use async when using ngfor comming from firebase observable, unless it wont work -->
+    <div *ngFor="let state of states | async">
+      <strong><small>KEY: {{ state.key }}</small></strong>
+      <div class="alert alert-warning" role="alert">
+        <small><strong>CITY:</strong> {{ state.city }},</small>
+        <small><strong>ZIP:</strong> {{ state.zip }},</small>
+        <small><strong>MAYOR:</strong> {{ state.mayor }}</small>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-success" (click)="readState()">Show documents in 'states' collection</button>
+  </div>
+
+  <div class="col-12"><br></div>
+
+  <!-- update -->
+  <div class="col-6">
+    <h3>Update</h3>
+    <p>copy paste any key of the document from the collection, or copy and paste a key from the READ section, and fill your update</p>
+
+    <form [formGroup]="stateForm">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="key" placeholder="push id / key">
+        <hr>
+        <input type="text" class="form-control" formControlName="city" placeholder="city">
+        <input type="number" class="form-control" formControlName="zip" placeholder="zip code">
+        <input type="text" class="form-control" formControlName="mayor" placeholder="mayor">
+      </div>
+    </form>
+
+    <button type="button" class="btn btn-success" (click)="updateState()">Update state</button>
+  </div>
+
+  <!-- delete -->
+  <div class="col-6">
+    <h3>Delete</h3>
+    <p>delete a document by key or delete the entire collection</p>
+
+    <form [formGroup]="stateForm">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="key" placeholder="push id / key">
+      </div>
+    </form>
+
+    <button type="button" class="btn btn-success" (click)="deleteState('key')">Delete key</button>
+    <button type="button" class="btn btn-success" (click)="deleteState('all')">delete all</button>
+  </div>
+
+  <div class="col-12"><br></div>
+
+  <!-- query -->
+  <div class="col-6">
+    <h3>Query</h3>
+    <p>TODO: wait until next week</p>
+  </div>
+
+</div>
