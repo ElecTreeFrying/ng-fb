@@ -1,27 +1,44 @@
 # NgFb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
+Follow-up demo-application, AngularPH: Code Fusion, November 25, 2017 at VentureSpace 724 Shaw Blvd, Mandaluyong, 1552 Metro Manila
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## DEMO - [ng-fb][1-link]
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+*   `git clone https://github.com/ElecTreeFrying/ng-fb.git`
+*   `cd ng-fb`
+*   `npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Create an account [firebase console][2-link].
 
-## Running unit tests
+1.  Select _Add Project_
+1.  Select Authentications
+1.  Click copy **WEB SETUP**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1.  Create the environment files below in `src/environments/`.
 
-## Running end-to-end tests
+    **environment.prod.ts**
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    ```
+    export const environment = {
+      production: true,
+      firebaseConfig: { **WEB SETUP** }
+    };
 
-## Further help
+    ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    **environment.ts**
+
+    ```
+    export const environment = {
+      production: false,
+      firebaseConfig: { **WEB SETUP** }
+    };
+
+    ```
+
+[1-link]: https://ng-fb-57b7f.firebaseapp.com
+[2-link]: https://console.firebase.google.com

@@ -3,7 +3,7 @@
 /src/environments/*.ts
 
 # compiled output
-/dist
+/distas
 /tmp
 /out-tsc
 
