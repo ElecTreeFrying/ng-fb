@@ -16,6 +16,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 // environment imports
 import { environment } from '../environments/environment';
 import { NoticeComponent } from './notice/notice.component';
+import { QueryingComponent } from './realtimedb/querying/querying.component';
 const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
@@ -24,7 +25,8 @@ const firebaseConfig = environment.firebaseConfig;
     NoticeComponent,
     RealtimedbComponent,
     StorageComponent,
-    HostingComponent
+    HostingComponent,
+    QueryingComponent
   ],
   imports: [
     BrowserModule,

@@ -18,11 +18,11 @@ export class AppComponent {
   }
 
   onShowNotice() {
-    this.isShow = true;
+    this.isShow = false;
   }
 
   hideNotice() {
-    this.isShow = false;
+    this.isShow = true;
   }
 
 }
